@@ -70,14 +70,20 @@ def login():
             session["user_name"] = user["name"]
             session["role"] = user["role"]
 
-            # Admin goes to Admin Dashboard
             if user["role"] == "admin":
                 return redirect(url_for("admin_dashboard"))
-
-            # Student goes to Student Dashboard
-            return redirect(url_for("student_dashboard"))
-
-        return "Invalid email or password!"
+            elif user["role"] == "student":
+                return redirect(url_for("student_dashboard"))
+            elif user["role"] == "faculty":
+                return redirect(url_for("faculty_dashboard"))
+            elif user["role"] == "staff":
+                return redirect(url_for("staff_dashboard"))
+            elif user["role"] == "hod":
+                return redirect(url_for("hod_dashboard"))
+            else:
+                session.clear()
+                return "Invalid user role!"
+                return "Invalid email or password!"
 
     return render_template("login.html")
 
