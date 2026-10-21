@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HOD Dashboard | Smart Campus</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #f4f7fb;
+        }
+
+        .navbar {
+            min-height: 70px;
+            background: linear-gradient(135deg, #6a1b9a, #8e44ad);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 50px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-logo {
+            width: 42px;
+            height: 42px;
+            background: white;
+            color: #6a1b9a;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .brand h2 {
+            font-size: 20px;
+        }
+
+        .logout-btn {
+            text-decoration: none;
+            color: white;
+            border: 1px solid rgba(255,255,255,0.5);
+            padding: 9px 18px;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .logout-btn:hover {
+            background: white;
+            color: #6a1b9a;
+        }
+
+        .main {
+            max-width: 1100px;
+            margin: auto;
+            padding: 45px 25px;
+        }
+
+        .welcome {
+            margin-bottom: 35px;
+        }
+
+        .welcome h1 {
+            color: #222;
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        .welcome p {
+            color: #777;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: 0.3s;
+            border: 1px solid #eef1f5;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 12px;
+            background: #f0e5f7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 25px;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            color: #222;
+            font-size: 19px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #777;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 22px;
+        }
+
+        .card-btn {
+            display: inline-block;
+            text-decoration: none;
+            background: #6a1b9a;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .card-btn:hover {
+            background: #501477;
+        }
+
+        .info-section {
+            margin-top: 35px;
+            background: white;
+            border-radius: 15px;
+            padding: 28px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+        }
+
+        .info-section h2 {
+            color: #222;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .info-section p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #999;
+            font-size: 12px;
+        }
+
+        @media (max-width: 800px) {
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .navbar {
+                padding: 15px 20px;
+            }
+
+            .brand h2 {
+                font-size: 17px;
+            }
+
+            .main {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="brand">
+            <div class="brand-logo">SC</div>
+            <h2>Smart Campus</h2>
+        </div>
+
+        <a href="{{ url_for('logout') }}" class="logout-btn">
+            Logout
+        </a>
+
+    </nav>
+
+    <main class="main">
+
+        <div class="welcome">
+            <h1>Welcome, {{ name }}! 👋</h1>
+
+            <p>
+                Monitor department complaints and track
+                campus issue resolution.
+            </p>
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <div class="card-icon">📋</div>
+
+                <h3>Department Complaints</h3>
+
+                <p>
+                    Review complaints related to your
+                    department and identify important issues.
+                </p>
+
+                <a href="{{ url_for('hod_dashboard') }}"
+                   class="card-btn">
+                    View Complaints
+                </a>
+
+            </div>
+
+            <div class="card">
+
+                <div class="card-icon">🚨</div>
+
+                <h3>High Priority Issues</h3>
+
+                <p>
+                    Focus on urgent campus problems that
+                    may require immediate attention.
+                </p>
+
+                <a href="{{ url_for('hod_dashboard') }}"
+                   class="card-btn">
+                    Review Issues
+                </a>
+
+            </div>
+
+            <div class="card">
+
+                <div class="card-icon">📊</div>
+
+                <h3>Complaint Status</h3>
+
+                <p>
+                    Monitor pending, in-progress and
+                    resolved department complaints.
+                </p>
+
+                <a href="{{ url_for('hod_dashboard') }}"
+                   class="card-btn">
+                    Check Status
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="info-section">
+
+            <h2>HOD Responsibilities</h2>
+
+            <p>
+                The Head of the Department can monitor
+                department-related complaints, review
+                high-priority issues and track resolution
+                progress. Department-wise filtering and
+                complaint statistics will be connected
+                to the database in a later step.
+            </p>
+
+        </div>
+
+    </main>
+
+    <footer>
+        Smart Campus Complaint Priority System © 2026
+    </footer>
+
+</body>
+</html>
