@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Report a Complaint</title>
+</head>
+<body>
+
+    <h2>Report a Complaint</h2>
+
+    <form method="POST">
+
+        <label>Complaint Title:</label><br>
+        <input type="text" name="title" required>
+        <br><br>
+
+        <label>Description:</label><br>
+        <textarea name="description" required></textarea>
+        <br><br>
+
+        <label>Location:</label><br>
+        <input type="text" name="location" required>
+        <br><br>
+
+        <label>Urgency:</label><br>
+        <select name="urgency" required>
+            <option value="10">Low</option>
+            <option value="20">Medium</option>
+            <option value="30">High</option>
+        </select>
+        <br><br>
+
+        <button type="submit">Submit Complaint</button>
+
+    </form>
+
+    <br>
+
+    <a href="/student-dashboard">Back to Dashboard</a>
+
+</body>
+</html>

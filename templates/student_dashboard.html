@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Dashboard | Smart Campus</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #f4f7fb;
+        }
+
+        /* NAVBAR */
+
+        .navbar {
+            height: 70px;
+            background: linear-gradient(135deg, #174ea6, #2a5298);
+            color: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 50px;
+
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-logo {
+            width: 42px;
+            height: 42px;
+
+            background: white;
+            color: #174ea6;
+
+            border-radius: 10px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .brand h2 {
+            font-size: 20px;
+        }
+
+        .logout-btn {
+            text-decoration: none;
+            color: white;
+
+            border: 1px solid rgba(255,255,255,0.5);
+
+            padding: 9px 18px;
+
+            border-radius: 8px;
+
+            font-size: 14px;
+
+            transition: 0.3s;
+        }
+
+        .logout-btn:hover {
+            background: white;
+            color: #174ea6;
+        }
+
+
+        /* MAIN */
+
+        .main {
+            max-width: 1100px;
+            margin: auto;
+
+            padding: 45px 25px;
+        }
+
+        .welcome {
+            margin-bottom: 35px;
+        }
+
+        .welcome h1 {
+            color: #222;
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        .welcome p {
+            color: #777;
+            font-size: 15px;
+        }
+
+
+        /* DASHBOARD CARDS */
+
+        .cards {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 22px;
+        }
+
+        .card {
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 15px;
+
+            box-shadow:
+                0 5px 20px rgba(0,0,0,0.08);
+
+            transition: 0.3s;
+
+            border: 1px solid #eef1f5;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 10px 25px rgba(0,0,0,0.12);
+        }
+
+        .card-icon {
+            width: 55px;
+            height: 55px;
+
+            border-radius: 12px;
+
+            background: #e8f0fe;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 25px;
+
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            color: #222;
+
+            font-size: 19px;
+
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #777;
+
+            font-size: 14px;
+
+            line-height: 1.5;
+
+            margin-bottom: 22px;
+        }
+
+        .card-btn {
+            display: inline-block;
+
+            text-decoration: none;
+
+            background: #174ea6;
+
+            color: white;
+
+            padding: 10px 18px;
+
+            border-radius: 8px;
+
+            font-size: 14px;
+
+            transition: 0.3s;
+        }
+
+        .card-btn:hover {
+            background: #123d82;
+        }
+
+
+        /* INFORMATION SECTION */
+
+        .info-section {
+            margin-top: 35px;
+
+            background: white;
+
+            border-radius: 15px;
+
+            padding: 28px;
+
+            box-shadow:
+                0 5px 20px rgba(0,0,0,0.06);
+        }
+
+        .info-section h2 {
+            color: #222;
+
+            font-size: 20px;
+
+            margin-bottom: 15px;
+        }
+
+        .info-section p {
+            color: #666;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+        }
+
+        .steps {
+            display: flex;
+
+            justify-content: space-between;
+
+            margin-top: 25px;
+
+            gap: 15px;
+        }
+
+        .step {
+            flex: 1;
+
+            text-align: center;
+
+            padding: 18px;
+
+            background: #f7f9fc;
+
+            border-radius: 10px;
+        }
+
+        .step-number {
+            width: 35px;
+            height: 35px;
+
+            margin: auto;
+            margin-bottom: 10px;
+
+            border-radius: 50%;
+
+            background: #174ea6;
+
+            color: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-weight: bold;
+        }
+
+        .step h4 {
+            color: #333;
+
+            margin-bottom: 6px;
+        }
+
+        .step p {
+            font-size: 12px;
+            color: #777;
+        }
+
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+
+            padding: 25px;
+
+            color: #999;
+
+            font-size: 12px;
+        }
+
+
+        /* RESPONSIVE */
+
+        @media (max-width: 800px) {
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .steps {
+                flex-direction: column;
+            }
+
+            .navbar {
+                padding: 0 20px;
+            }
+
+            .brand h2 {
+                font-size: 17px;
+            }
+
+            .main {
+                padding: 30px 20px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="brand">
+
+            <div class="brand-logo">
+                SC
+            </div>
+
+            <h2>
+                Smart Campus
+            </h2>
+
+        </div>
+
+
+        <a href="/logout" class="logout-btn">
+            Logout
+        </a>
+
+    </nav>
+
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main">
+
+
+        <!-- WELCOME -->
+
+        <div class="welcome">
+
+            <h1>
+                Welcome, {{ name }}! 👋
+            </h1>
+
+            <p>
+                Manage and track your campus complaints from one place.
+            </p>
+
+        </div>
+
+
+
+        <!-- DASHBOARD CARDS -->
+
+        <div class="cards">
+
+
+            <!-- REPORT COMPLAINT -->
+
+            <div class="card">
+
+                <div class="card-icon">
+                    📝
+                </div>
+
+                <h3>
+                    Report a Complaint
+                </h3>
+
+                <p>
+                    Report an issue related to campus infrastructure,
+                    water, electrical facilities, cleanliness,
+                    transport or IT services.
+                </p>
+
+                <a
+                    href="/submit-complaint"
+                    class="card-btn">
+
+                    Submit Complaint
+
+                </a>
+
+            </div>
+
+
+
+            <!-- MY COMPLAINTS -->
+
+            <div class="card">
+
+                <div class="card-icon">
+                    📋
+                </div>
+
+                <h3>
+                    My Complaints
+                </h3>
+
+                <p>
+                    View the complaints you have submitted
+                    and check their current status.
+                </p>
+
+                <a
+                    href="/my-complaints"
+                    class="card-btn">
+
+                    View Complaints
+
+                </a>
+
+            </div>
+
+
+
+            <!-- TRACK STATUS -->
+
+            <div class="card">
+
+                <div class="card-icon">
+                    📊
+                </div>
+
+                <h3>
+                    Track Status
+                </h3>
+
+                <p>
+                    Track whether your complaint is Pending,
+                    Assigned, In Progress or Resolved.
+                </p>
+
+                <a
+                    href="/my-complaints"
+                    class="card-btn">
+
+                    Track Now
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- HOW IT WORKS -->
+
+        <div class="info-section">
+
+            <h2>
+                How Smart Campus Works
+            </h2>
+
+            <p>
+                Your complaint is automatically analyzed by
+                the system and assigned a category, department
+                and priority based on the complaint details.
+            </p>
+
+
+            <div class="steps">
+
+
+                <div class="step">
+
+                    <div class="step-number">
+                        1
+                    </div>
+
+                    <h4>
+                        Submit
+                    </h4>
+
+                    <p>
+                        Student submits a campus complaint.
+                    </p>
+
+                </div>
+
+
+
+                <div class="step">
+
+                    <div class="step-number">
+                        2
+                    </div>
+
+                    <h4>
+                        Analyze
+                    </h4>
+
+                    <p>
+                        System categorizes and calculates priority.
+                    </p>
+
+                </div>
+
+
+
+                <div class="step">
+
+                    <div class="step-number">
+                        3
+                    </div>
+
+                    <h4>
+                        Assign
+                    </h4>
+
+                    <p>
+                        Complaint is assigned to the responsible department.
+                    </p>
+
+                </div>
+
+
+
+                <div class="step">
+
+                    <div class="step-number">
+                        4
+                    </div>
+
+                    <h4>
+                        Resolve
+                    </h4>
+
+                    <p>
+                        Department works on the complaint and updates its status.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        Smart Campus Complaint Priority System © 2026
+
+    </footer>
+
+
+</body>
+
+</html>

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Login | Smart Campus</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            width: 900px;
+            max-width: 95%;
+            min-height: 550px;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        /* LEFT SIDE */
+
+        .left-section {
+            width: 50%;
+            background: linear-gradient(135deg, #174ea6, #4285f4);
+            color: white;
+            padding: 60px 45px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .logo {
+            width: 70px;
+            height: 70px;
+            background: white;
+            color: #174ea6;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+
+        .left-section h1 {
+            font-size: 34px;
+            margin-bottom: 15px;
+        }
+
+        .left-section p {
+            font-size: 16px;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .features {
+            margin-top: 30px;
+        }
+
+        .features p {
+            margin: 15px 0;
+            font-size: 15px;
+        }
+
+        /* RIGHT SIDE */
+
+        .right-section {
+            width: 50%;
+            padding: 55px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .right-section h2 {
+            color: #222;
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #777;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .input-box {
+            position: relative;
+        }
+
+        .input-box input {
+            width: 100%;
+            padding: 14px 45px 14px 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            outline: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .input-box input:focus {
+            border-color: #2a65c7;
+            box-shadow: 0 0 0 3px rgba(42, 101, 199, 0.1);
+        }
+
+        .icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #777;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 14px;
+            background: #174ea6;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 5px;
+        }
+
+        .login-btn:hover {
+            background: #123d82;
+            transform: translateY(-1px);
+        }
+
+        .register {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 14px;
+            color: #777;
+        }
+
+        .register a {
+            color: #174ea6;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .register a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 35px;
+            color: #aaa;
+            font-size: 12px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            .container {
+                flex-direction: column;
+            }
+
+            .left-section,
+            .right-section {
+                width: 100%;
+            }
+
+            .left-section {
+                padding: 35px;
+            }
+
+            .left-section h1 {
+                font-size: 27px;
+            }
+
+            .features {
+                display: none;
+            }
+
+            .right-section {
+                padding: 40px 30px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- LEFT SECTION -->
+
+        <div class="left-section">
+
+            <div class="logo">
+                SC
+            </div>
+
+            <h1>Smart Campus</h1>
+
+            <p>
+                Complaint Priority Management System
+            </p>
+
+            <div class="features">
+
+                <p>✓ Submit campus complaints easily</p>
+
+                <p>✓ Smart complaint categorization</p>
+
+                <p>✓ Priority-based complaint management</p>
+
+                <p>✓ Track complaint status</p>
+
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT SECTION -->
+
+        <div class="right-section">
+
+            <h2>Student Login</h2>
+
+            <p class="subtitle">
+                Sign in to access your campus complaint portal
+            </p>
+
+
+            <form method="POST">
+
+                <!-- EMAIL -->
+
+                <div class="input-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <div class="input-box">
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your college email"
+                            required
+                        >
+
+                        <span class="icon">✉</span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PASSWORD -->
+
+                <div class="input-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <div class="input-box">
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Enter your password"
+                            required
+                        >
+
+                        <span
+                            class="icon"
+                            onclick="togglePassword()"
+                            style="cursor:pointer;"
+                            id="eye">
+                            👁
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- LOGIN BUTTON -->
+
+                <button type="submit" class="login-btn">
+                    Login
+                </button>
+
+            </form>
+
+
+            <!-- REGISTER -->
+
+            <div class="register">
+
+                Don't have an account?
+
+                <a href="/register">
+                    Create Account
+                </a>
+
+            </div>
+
+
+            <div class="footer">
+
+                Smart Campus Complaint Priority System © 2026
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function togglePassword() {
+
+            const password =
+                document.getElementById("password");
+
+            const eye =
+                document.getElementById("eye");
+
+            if (password.type === "password") {
+
+                password.type = "text";
+                eye.innerHTML = "🙈";
+
+            } else {
+
+                password.type = "password";
+                eye.innerHTML = "👁";
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>
